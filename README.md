@@ -1,4 +1,4 @@
-# Jumpstart Fronted
+# Jumpstart Frontend
 
 A service to serve React.js client-side code powered by NGINX for Jumpstart, a mockup crowdfunding application based off of KickStarter
 
