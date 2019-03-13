@@ -1,0 +1,80 @@
+.ProjectView {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.ProjectHeaderBox {
+  display: flex;
+  flex-direction: row;
+}
+.project-creator-box {
+  float: left;
+  flex-direction: column;
+}
+
+.project-creator-image {
+  float: left;
+}
+
+img#creator-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+p#project-creator {
+  font-size: 8pt;
+  width: 100%;
+}
+
+.project-title-box {
+  float: center;
+}
+
+h1#project-title {
+  font-size: 12pt;
+  margin: 2px;
+}
+h3#project-subtitle {
+  font-size: 8pt;
+}
+
+img#project-image {
+  width: 85%;
+  height: auto;
+}
+.project-caption-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.project-category-box {
+  display: flex;
+  margin: 10px;
+}
+.project-location-box {
+  display: flex;
+  margin: 10px;
+}
+img#category-icon {
+  width: auto;
+  height: 20px;
+  padding-right: 5px;
+}
+
+img#location-icon {
+  width: auto;
+  height: 20px;
+  padding-right: 5px;
+}
+
+#category-text {
+  font-size: 8pt;
+}
+
+#location-text {
+  font-size: 8pt;
+}

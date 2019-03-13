@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/app.css';
-import './favicons';
-import App from './app';
+import App from 'app';
+import 'favicons';
 
 ReactDOM.render(<App />, document.getElementById('root'));

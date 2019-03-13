@@ -5,7 +5,10 @@
   "rules": {
     "prettier/prettier": ["error"],
     "no-console": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "import/no-unresolved": 0,
+    "react/no-array-index-key": 0,
+    "jsx-a11y/label-has-for": 0
   },
   "env": {
     "browser": true

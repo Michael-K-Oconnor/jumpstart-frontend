@@ -1,53 +1,55 @@
 import React from 'react';
-import './styles/app.css';
-import Nav from './nav';
+import Nav from 'containers/nav/nav';
+import Project from 'containers/project/project';
+import Pledge from 'containers/pledge/pledge';
+import Comments from 'containers/comments/comments';
+import Suggested from 'containers/suggested/suggested';
+import './app.css';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.changeProject = this.changeProject.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      id: Math.ceil(Math.random() * 107)
+      projectId: Math.ceil(Math.random() * 107)
     };
   }
 
   changeProject() {
     this.setState({
-      id: Math.floor(Math.random() * 99 + 1)
+      projectId: Math.floor(Math.random() * 99 + 1)
     });
   }
 
   handleClick(e, newId) {
     this.setState({
-      id: newId
+      projectId: newId
     });
   }
 
   render() {
-    const { id } = this.state;
+    const { projectId } = this.state;
     return (
       <div>
         <div className="container">
           <div className="navBar">
             <Nav />
           </div>
-          {/* <div className="Project">
-            <Project id={id} />
+          <div className="Project">
+            <Project projectId={projectId} />
           </div>
           <div className="Pledge">
-            <Pledge id={id} />
+            <Pledge projectId={projectId} />
           </div>
           <div className="Comments">
-            <Comments id={this.state.id} />
+            <Comments projectId={projectId} />
           </div>
-          <div className="Related">
-            <Related id={id} onClick={this.handleClick} />
-          </div> */}
+          <div className="Suggested">
+            <Suggested projectId={projectId} handleClick={this.handleClick} />
+          </div>
         </div>
       </div>
     );
   }
 }
-
-export default App;
