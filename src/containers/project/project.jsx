@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import locationIcon from 'assets/locationIcon.png';
-import categoryIcon from 'assets/categoryIcon.png';
+import ProjectDisplay from './displays/ProjectDisplay';
 import './project.css';
 
 export default class Project extends React.Component {
@@ -13,7 +12,8 @@ export default class Project extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiRoute: `${window.location.origin}/api/projects/`
+      apiRoute: `${window.location.origin}/api/projects/`,
+      hasData: false
     };
   }
 
@@ -29,7 +29,8 @@ export default class Project extends React.Component {
         blurb,
         fullImg,
         location,
-        category
+        category,
+        hasData: true
       });
     });
   }
@@ -54,40 +55,20 @@ export default class Project extends React.Component {
   }
 
   render() {
-    const { name, creator, creatorImg, blurb, fullImg, location, category } = this.state;
+    const { name, creator, creatorImg, blurb, fullImg, location, category, hasData } = this.state;
     return (
-      <div className="ProjectView">
-        <div className="ProjectHeaderBox">
-          <div className="project-creator-box">
-            <div className="project-creator-image">
-              <img src={creatorImg} id="creator-pic" alt="Project creator" />
-            </div>
-            <div className="project-creator-name">
-              <p id="project-creator">By {creator}</p>
-            </div>
-          </div>
-          <div className="project-title-box">
-            <h1 id="project-title">{name}</h1>
-            <h3 id="project-subtitle">{blurb}</h3>
-          </div>
-        </div>
-
-        <div className="project-image-box">
-          <div className="full-project-image">
-            <img id="project-image" src={fullImg} alt="Project" />
-          </div>
-
-          <div className="project-caption-box">
-            <div className="project-category-box">
-              <img src={categoryIcon} id="category-icon" alt="category icon" />
-              <div id="category-text">{category}</div>
-            </div>
-            <div className="project-location-box">
-              <img src={locationIcon} id="location-icon" alt="location icon" />
-              <div id="location-text">{location}</div>
-            </div>
-          </div>
-        </div>
+      <div>
+        {hasData && (
+          <ProjectDisplay
+            name={name}
+            creator={creator}
+            creatorImg={creatorImg}
+            blurb={blurb}
+            fullImg={fullImg}
+            location={location}
+            category={category}
+          />
+        )}
       </div>
     );
   }

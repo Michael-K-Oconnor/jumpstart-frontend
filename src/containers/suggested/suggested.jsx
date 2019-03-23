@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-// import 'styles/suggested.css';
+import SuggestedCard from './displays/suggestedCard';
+import './suggested.css';
 
 export default class Suggested extends React.Component {
   static propTypes = {
@@ -40,18 +41,7 @@ export default class Suggested extends React.Component {
     return (
       <div>
         {projects.map((project, i) => (
-          <button
-            key={i}
-            className="project"
-            type="button"
-            onClick={event => handleClick(event, project.projectId)}
-          >
-            <div className="image">
-              <img src={project.thumbnail} alt="Suggested project thumbnail" />
-              <div className="name">{project.name}</div>
-              <div className="blurb">{project.blurb}</div>
-            </div>
-          </button>
+          <SuggestedCard key={i} handleClick={handleClick} project={project} />
         ))}
       </div>
     );

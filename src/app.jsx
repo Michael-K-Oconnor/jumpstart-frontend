@@ -9,17 +9,10 @@ import './app.css';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.changeProject = this.changeProject.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       projectId: Math.ceil(Math.random() * 107)
     };
-  }
-
-  changeProject() {
-    this.setState({
-      projectId: Math.floor(Math.random() * 99 + 1)
-    });
   }
 
   handleClick(e, newId) {

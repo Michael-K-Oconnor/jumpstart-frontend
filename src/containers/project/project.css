@@ -10,71 +10,77 @@
   display: flex;
   flex-direction: row;
 }
-.project-creator-box {
+
+.creator {
   float: left;
   flex-direction: column;
+  border-right: 10px;
 }
 
-.project-creator-image {
+.creator-image {
   float: left;
-}
-
-img#creator-pic {
   width: 100px;
   height: 100px;
   border-radius: 5px;
 }
 
-p#project-creator {
-  font-size: 8pt;
+.creator-name {
+  font-size: 10pt;
   width: 100%;
+  clear: both;
 }
 
-.project-title-box {
+.title {
   float: center;
+  border-right: 20px;
 }
 
-h1#project-title {
-  font-size: 12pt;
+.title-name {
+  font-size: 16pt;
   margin: 2px;
 }
-h3#project-subtitle {
-  font-size: 8pt;
+
+.title-blurb {
+  font-size: 12pt;
 }
 
-img#project-image {
+.image {
   width: 85%;
   height: auto;
 }
-.project-caption-box {
+
+.context {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-.project-category-box {
+
+.context-category {
   display: flex;
   margin: 10px;
 }
-.project-location-box {
+
+.context-category-icon {
+  width: auto;
+  height: 19px;
+  padding-right: 5px;
+}
+
+.context-category-text {
+  font-size: 12pt;
+}
+
+.context-location {
   display: flex;
   margin: 10px;
 }
-img#category-icon {
+
+.context-location-icon {
   width: auto;
-  height: 20px;
+  height: 19px;
   padding-right: 5px;
 }
 
-img#location-icon {
-  width: auto;
-  height: 20px;
-  padding-right: 5px;
-}
-
-#category-text {
-  font-size: 8pt;
-}
-
-#location-text {
-  font-size: 8pt;
+.context-location-text {
+  font-size: 12pt;
 }

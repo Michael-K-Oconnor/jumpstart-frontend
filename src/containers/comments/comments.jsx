@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import CommentForm from './displays/commentForm';
+import CommentForm from 'displayComps/textAreaWithSubmit';
 import CommentCard from './displays/commentCard';
+import './comments.css';
 
 export default class Comments extends React.Component {
   static propTypes = {
@@ -11,12 +12,10 @@ export default class Comments extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       apiRoute: `${window.location.origin}/api/comments/`,
-      comments: [],
-      content: ''
+      comments: []
     };
   }
 
@@ -42,27 +41,32 @@ export default class Comments extends React.Component {
     }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.setState({
-      content: ''
-    });
-  }
-
-  handleInputChange(e) {
-    this.setState({
-      content: e.target.value
-    });
+  handleSubmit(e, comment) {
+    const { apiRoute } = this.state;
+    const { projectId } = this.props;
+    axios
+      .post(apiRoute, {
+        projectId,
+        comment,
+        userId: 0,
+        username: 'Guest'
+      })
+      .then(() => axios.get(apiRoute + projectId))
+      .then(({ data }) => {
+        this.setState({
+          comments: data
+        });
+      });
   }
 
   render() {
-    const { comments, content } = this.state;
+    const { comments } = this.state;
     return (
       <div>
         <CommentForm
-          content={content}
-          handleInputChange={this.handleInputChange}
           handleSubmit={this.handleSubmit}
+          name="CommentForm"
+          placeholder="Add a comment!"
         />
         {comments.map((comment, i) => (
           <CommentCard key={i} {...comment} />

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextArea = props => {
-  const { content, handleInputChange, title, name, rows, htmlFor, resize, placeholder } = props;
+const NumberInput = props => {
+  const { value, handleInputChange, title, name, htmlFor, min, max, placeholder } = props;
   return (
     <div className="form-group">
       {title && htmlFor && (
@@ -10,29 +10,29 @@ const TextArea = props => {
           {title}
         </label>
       )}
-      <textarea
+      <input
         className="form-input"
-        style={resize ? null : { resize: 'none' }}
         id={htmlFor}
         name={name}
-        rows={rows || 3}
-        value={content}
+        value={value}
         onChange={handleInputChange}
         placeholder={placeholder}
+        min={min}
+        max={max}
       />
     </div>
   );
 };
 
-export default TextArea;
+export default NumberInput;
 
-TextArea.propTypes = {
-  content: PropTypes.string.isRequired,
+NumberInput.propTypes = {
+  value: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string,
-  rows: PropTypes.number,
   htmlFor: PropTypes.string,
-  resize: PropTypes.bool,
+  min: PropTypes.string,
+  max: PropTypes.string,
   placeholder: PropTypes.string
 };

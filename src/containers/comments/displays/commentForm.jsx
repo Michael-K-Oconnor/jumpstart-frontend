@@ -1,28 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import TextArea from 'displayComps/textArea';
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import TextArea from 'displayComps/textArea';
+// import SubmitButton from 'displayComps/submitButton';
 
-const CommentForm = props => {
-  const { content, handleInputChange, handleSubmit } = props;
-  return (
-    <form>
-      <TextArea
-        rows={3}
-        name="commentInput"
-        content={content}
-        resize={false}
-        placeholder="Add a comment!"
-        controlFunc={handleInputChange}
-      />
-      <input type="submit" value="Submit comment" onClick={handleSubmit} />
-    </form>
-  );
-};
+// const CommentForm = props => {
+//   const { handleSubmit } = props;
+//   return (
+//     <form>
+//       <TextArea rows={3} name="commentInput" resize={false} placeholder="Add a comment!" />
+//       <SubmitButton handleSubmit={handleSubmit} />
+//     </form>
+//   );
+// };
 
-CommentForm.propTypes = {
-  content: PropTypes.string.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired
-};
+// CommentForm.propTypes = {
+//   handleSubmit: PropTypes.func.isRequired
+// };
 
-export default CommentForm;
+// export default CommentForm;
