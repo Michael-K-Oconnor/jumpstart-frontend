@@ -6,7 +6,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
-  entry: './src/index.jsx',
+  entry: ['@babel/polyfill', './src/index.jsx'],
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, './dist')

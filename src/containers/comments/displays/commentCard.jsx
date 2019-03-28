@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const CommentCard = props => {
   const { username, comment, createdAt } = props;
   return (
-    <div>
-      <div className="comment">{comment}</div>
-      <div className="comment">{username}</div>
-      <div className="comment">{createdAt}</div>
+    <div className="comment-card">
+      <p className="user">{username}</p>
+      <p className="date">{createdAt}</p>
+      <p className="comment">{comment}</p>
     </div>
   );
 };

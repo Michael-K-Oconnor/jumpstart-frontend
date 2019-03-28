@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { addCommas, isValidNum } from './helpers';
+import { addCommas, isValidPledgeAmount, calcFundedRatio } from 'utils/utils';
 import PledgeInfo from './displays/pledgeInfo';
 import PledgeForm from './displays/pledgeForm';
 import './pledge.css';
@@ -22,68 +22,66 @@ export default class Pledge extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const { apiRoute } = this.state;
-    const { projectId } = this.props;
-    axios.get(apiRoute + projectId).then(({ data }) => {
+  async componentDidMount() {
+    try {
+      const { apiRoute } = this.state;
+      const { projectId } = this.props;
+      const { data } = await axios.get(apiRoute + projectId);
       const { goal, pledged, backerCount, daysLeft } = data;
       this.setState({
-        goal: addCommas(goal),
-        pledged: addCommas(pledged),
-        backerCount: addCommas(backerCount),
-        daysLeft: addCommas(daysLeft),
-        fundedRatio: `${Math.min(
-          Math.ceil((pledged / goal) * (window.innerWidth * 0.35 * 0.8)),
-          window.innerWidth * 0.35 * 0.8
-        )}px`,
+        goal,
+        pledged,
+        backerCount,
+        daysLeft,
+        fundedRatio: calcFundedRatio(pledged, goal),
         hasData: true
       });
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    const { apiRoute } = this.state;
-    const { projectId } = this.props;
-    if (projectId !== prevProps.projectId) {
-      axios.get(apiRoute + projectId).then(({ data }) => {
-        const { goal, pledged, backerCount, daysLeft } = data;
-        this.setState({
-          goal: addCommas(goal),
-          pledged: addCommas(pledged),
-          backerCount: addCommas(backerCount),
-          daysLeft: addCommas(daysLeft),
-          fundedRatio: `${Math.min(
-            Math.ceil((pledged / goal) * (window.innerWidth * 0.35 * 0.8)),
-            window.innerWidth * 0.35 * 0.8
-          )}px`,
-          hasBacked: false
-        });
-      });
+    } catch {
+      console.log('Looks like there was an error with the pledge component');
     }
   }
 
-  handleSubmit(e, pledgeAmount) {
-    const { apiRoute, hasBacked } = this.state;
-    const { projectId } = this.props;
-    axios
-      .post(apiRoute, {
+  async componentDidUpdate(prevProps) {
+    try {
+      const { apiRoute } = this.state;
+      const { projectId } = this.props;
+      if (projectId !== prevProps.projectId) {
+        const { data } = await axios.get(apiRoute + projectId);
+        const { goal, pledged, backerCount, daysLeft } = data;
+        this.setState({
+          goal,
+          pledged,
+          backerCount,
+          daysLeft,
+          fundedRatio: calcFundedRatio(pledged, goal),
+          hasBacked: false
+        });
+      }
+    } catch {
+      console.log('Looks like there was an error with the pledge component');
+    }
+  }
+
+  async handleSubmit(e, pledgeAmount) {
+    try {
+      const { apiRoute, hasBacked } = this.state;
+      const { projectId } = this.props;
+      await axios.post(apiRoute, {
         projectId,
         hasBacked,
         pledgeAmount: Number(pledgeAmount)
-      })
-      .then(() => axios.get(apiRoute + projectId))
-      .then(({ data }) => {
-        const { goal, pledged, backerCount } = data;
-        this.setState({
-          pledged: addCommas(pledged),
-          backerCount: addCommas(backerCount),
-          fundedRatio: `${Math.min(
-            Math.ceil((pledged / goal) * (window.innerWidth * 0.35 * 0.8)),
-            window.innerWidth * 0.35 * 0.8
-          )}px`,
-          hasBacked: true
-        });
       });
+      const { data } = await axios.get(apiRoute + projectId);
+      const { goal, pledged, backerCount } = data;
+      this.setState({
+        pledged,
+        backerCount,
+        fundedRatio: calcFundedRatio(pledged, goal),
+        hasBacked: true
+      });
+    } catch {
+      console.log('Looks like there was an error with the pledge component');
+    }
   }
 
   render() {
@@ -93,16 +91,16 @@ export default class Pledge extends React.Component {
         {hasData && (
           <PledgeInfo
             fundedRatio={fundedRatio}
-            pledged={pledged}
-            goal={goal}
-            backerCount={backerCount}
-            daysLeft={daysLeft}
+            pledged={addCommas(pledged)}
+            goal={addCommas(goal)}
+            backerCount={addCommas(backerCount)}
+            daysLeft={addCommas(daysLeft)}
           />
         )}
         <PledgeForm
           handleSubmit={this.handleSubmit}
           name="PledgeForm"
-          isValidInput={isValidNum}
+          isValidInput={isValidPledgeAmount}
           defaultValue="10"
           min="0"
           max="1000000"

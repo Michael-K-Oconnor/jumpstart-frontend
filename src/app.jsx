@@ -24,23 +24,21 @@ export default class App extends React.Component {
   render() {
     const { projectId } = this.state;
     return (
-      <div>
-        <div className="container">
-          <div className="navBar">
-            <Nav />
-          </div>
-          <div className="Project">
-            <Project projectId={projectId} />
-          </div>
-          <div className="Pledge">
-            <Pledge projectId={projectId} />
-          </div>
-          <div className="Comments">
-            <Comments projectId={projectId} />
-          </div>
-          <div className="Suggested">
-            <Suggested projectId={projectId} handleClick={this.handleClick} />
-          </div>
+      <div className="container">
+        <div className="navBar">
+          <Nav />
+        </div>
+        <div className="Project">
+          <Project projectId={projectId} />
+        </div>
+        <div className="Pledge">
+          <Pledge projectId={projectId} />
+        </div>
+        <div className="Comments">
+          <Comments projectId={projectId} />
+        </div>
+        <div className="Suggested">
+          <Suggested projectId={projectId} handleClick={this.handleClick} />
         </div>
       </div>
     );

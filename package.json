@@ -15,11 +15,18 @@
   },
   "author": "Michael O'Connor",
   "license": "ISC",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "prettier": {
     "singleQuote": true,
     "printWidth": 100
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.0",
     "axios": "^0.18.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const TextArea = props => {
   const { content, handleInputChange, title, name, rows, htmlFor, resize, placeholder } = props;
   return (
-    <div className="form-group">
+    <>
       {title && htmlFor && (
         <label className="form-label" htmlFor={htmlFor}>
           {title}
@@ -20,7 +20,7 @@ const TextArea = props => {
         onChange={handleInputChange}
         placeholder={placeholder}
       />
-    </div>
+    </>
   );
 };
 

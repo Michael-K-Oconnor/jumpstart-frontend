@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 const NumberInput = props => {
   const { value, handleInputChange, title, name, htmlFor, min, max, placeholder } = props;
   return (
-    <div className="form-group">
+    <>
       {title && htmlFor && (
         <label className="form-label" htmlFor={htmlFor}>
           {title}
         </label>
       )}
       <input
-        className="form-input"
+        className="number-input"
         id={htmlFor}
         name={name}
         value={value}
@@ -20,7 +20,7 @@ const NumberInput = props => {
         min={min}
         max={max}
       />
-    </div>
+    </>
   );
 };
 

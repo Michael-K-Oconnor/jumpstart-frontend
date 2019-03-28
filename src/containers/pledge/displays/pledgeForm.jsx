@@ -49,11 +49,10 @@ export default class PledgeForm extends React.Component {
     const { content, isDisabled, hasMounted } = this.state;
     const { name, min, max, htmlFor, title, placeholder } = this.props;
     return (
-      <div>
+      <>
         {hasMounted && (
-          <form className="input-icon">
+          <form className="pledge">
             <NumberInput
-              className="pledgeInput"
               type="number"
               name={name}
               title={title}
@@ -66,7 +65,6 @@ export default class PledgeForm extends React.Component {
             />
             <i className="bling">$</i>
             <SubmitButton
-              className="pledgeButton"
               handleFormSubmit={this.handleFormSubmit}
               isDisabled={isDisabled}
               name="pledgSubmit"
@@ -74,7 +72,7 @@ export default class PledgeForm extends React.Component {
             />
           </form>
         )}
-      </div>
+      </>
     );
   }
 }

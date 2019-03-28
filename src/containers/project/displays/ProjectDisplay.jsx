@@ -6,26 +6,26 @@ import categoryIcon from 'assets/categoryIcon.png';
 const ProjectDisplay = props => {
   const { creatorImg, creator, name, blurb, fullImg, category, location } = props;
   return (
-    <div className="ProjectView">
-      <div className="ProjectHeaderBox">
+    <div className="project-view">
+      <div className="header">
         <div className="creator">
-          <img className="creator-image" src={creatorImg} alt="Project creator" />
-          <p className="creator-name">By {creator}</p>
+          <img src={creatorImg} alt="Project creator" />
+          <p>By {creator}</p>
         </div>
         <div className="title">
           <h1 className="title-name">{name}</h1>
           <h3 className="title-blurb">{blurb}</h3>
         </div>
       </div>
-      <img className="image" src={fullImg} alt="Project" />
+      <img className="main" src={fullImg} alt="Project" />
       <div className="context">
         <div className="context-category">
-          <img className="context-category-icon" src={categoryIcon} alt="category icon" />
-          <div className="context-category-text">{category}</div>
+          <img src={categoryIcon} alt="category icon" />
+          <p>{category}</p>
         </div>
         <div className="context-location">
-          <img id="context-location-icon" src={locationIcon} alt="location icon" />
-          <div id="context-location-text">{location}</div>
+          <img src={locationIcon} alt="location icon" />
+          <p>{location}</p>
         </div>
       </div>
     </div>

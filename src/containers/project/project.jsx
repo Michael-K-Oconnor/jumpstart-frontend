@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import ProjectDisplay from './displays/ProjectDisplay';
+import ProjectDisplay from './displays/projectdisplay';
 import './project.css';
 
 export default class Project extends React.Component {
@@ -17,10 +17,11 @@ export default class Project extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const { apiRoute } = this.state;
-    const { projectId } = this.props;
-    axios.get(apiRoute + projectId).then(({ data }) => {
+  async componentDidMount() {
+    try {
+      const { apiRoute } = this.state;
+      const { projectId } = this.props;
+      const { data } = await axios.get(apiRoute + projectId);
       const { name, creator, creatorImg, blurb, fullImg, location, category } = data;
       this.setState({
         name,
@@ -32,14 +33,17 @@ export default class Project extends React.Component {
         category,
         hasData: true
       });
-    });
+    } catch {
+      console.log('Looks like there was an error with the project component');
+    }
   }
 
-  componentDidUpdate(prevProps) {
-    const { apiRoute } = this.state;
-    const { projectId } = this.props;
-    if (projectId !== prevProps.projectId) {
-      axios.get(apiRoute + projectId).then(({ data }) => {
+  async componentDidUpdate(prevProps) {
+    try {
+      const { apiRoute } = this.state;
+      const { projectId } = this.props;
+      if (projectId !== prevProps.projectId) {
+        const { data } = await axios.get(apiRoute + projectId);
         const { name, creator, creatorImg, blurb, fullImg, location, category } = data;
         this.setState({
           name,
@@ -50,14 +54,16 @@ export default class Project extends React.Component {
           location,
           category
         });
-      });
+      }
+    } catch {
+      console.log('Looks like there was an error with the project component');
     }
   }
 
   render() {
     const { name, creator, creatorImg, blurb, fullImg, location, category, hasData } = this.state;
     return (
-      <div>
+      <>
         {hasData && (
           <ProjectDisplay
             name={name}
@@ -69,7 +75,7 @@ export default class Project extends React.Component {
             category={category}
           />
         )}
-      </div>
+      </>
     );
   }
 }

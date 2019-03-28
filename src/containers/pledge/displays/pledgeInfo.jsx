@@ -5,14 +5,16 @@ const PledgeInfo = props => {
   const { fundedRatio, pledged, goal, backerCount, daysLeft } = props;
   return (
     <div>
-      <div className="progressBar" style={{ width: fundedRatio }} />
-      <div className="progressBackground" />
-      <div className="pledgedAmount">${pledged}</div>
-      <div className="subText">pledged of ${goal} goal</div>
-      <div className="secondaryStats">{backerCount}</div>
-      <div className="subText">backers</div>
-      <div className="secondaryStats">{daysLeft}</div>
-      <div className="subText">days left</div>
+      <div className="progress">
+        <div className="bar" style={{ width: fundedRatio }} />
+        <div className="bar-background" />
+      </div>
+      <p className="stats pledged">${pledged}</p>
+      <p className="sub-text">pledged of ${goal} goal</p>
+      <p className="stats">{backerCount}</p>
+      <p className="sub-text">backers</p>
+      <p className="stats">{daysLeft}</p>
+      <p className="sub-text">days left</p>
     </div>
   );
 };

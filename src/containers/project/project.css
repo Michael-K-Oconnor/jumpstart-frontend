@@ -1,12 +1,13 @@
-.ProjectView {
+.project-view {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 20px;
-  margin-left: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
-.ProjectHeaderBox {
+.header {
   display: flex;
   flex-direction: row;
 }
@@ -17,14 +18,14 @@
   border-right: 10px;
 }
 
-.creator-image {
+.creator > img {
   float: left;
   width: 100px;
   height: 100px;
   border-radius: 5px;
 }
 
-.creator-name {
+.creator > p {
   font-size: 10pt;
   width: 100%;
   clear: both;
@@ -44,7 +45,7 @@
   font-size: 12pt;
 }
 
-.image {
+img.main-image {
   width: 85%;
   height: auto;
 }
@@ -60,13 +61,13 @@
   margin: 10px;
 }
 
-.context-category-icon {
+.context-category > img {
   width: auto;
   height: 19px;
   padding-right: 5px;
 }
 
-.context-category-text {
+.context-category > p {
   font-size: 12pt;
 }
 
@@ -75,12 +76,12 @@
   margin: 10px;
 }
 
-.context-location-icon {
+.context-location > img {
   width: auto;
   height: 19px;
   padding-right: 5px;
 }
 
-.context-location-text {
+.context-location > p {
   font-size: 12pt;
 }

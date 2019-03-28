@@ -18,20 +18,26 @@ export default class Suggested extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const { apiRoute } = this.state;
-    axios.get(`${apiRoute}sample`).then(({ data }) => {
+  async componentDidMount() {
+    try {
+      const { apiRoute } = this.state;
+      const { data } = await axios.get(`${apiRoute}sample`);
       this.setState({ projects: data });
-    });
+    } catch {
+      console.log('Looks like there was an error with the suggested component');
+    }
   }
 
-  componentDidUpdate(prevProps) {
-    const { apiRoute } = this.state;
-    const { projectId } = this.props;
-    if (projectId !== prevProps.projectId) {
-      axios.get(`${apiRoute}sample`).then(({ data }) => {
+  async componentDidUpdate(prevProps) {
+    try {
+      const { apiRoute } = this.state;
+      const { projectId } = this.props;
+      if (projectId !== prevProps.projectId) {
+        const { data } = await axios.get(`${apiRoute}sample`);
         this.setState({ projects: data });
-      });
+      }
+    } catch {
+      console.log('Looks like there was an error with the suggested component');
     }
   }
 

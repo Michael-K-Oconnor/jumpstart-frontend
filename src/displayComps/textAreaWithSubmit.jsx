@@ -13,7 +13,8 @@ export default class TextAreaWithSubmit extends React.Component {
     resize: PropTypes.bool,
     placeholder: PropTypes.string,
     isValidInput: PropTypes.func,
-    formatInput: PropTypes.func
+    formatInput: PropTypes.func,
+    className: PropTypes.string
   };
 
   constructor(props) {
@@ -45,11 +46,11 @@ export default class TextAreaWithSubmit extends React.Component {
 
   render() {
     const { content, isDisabled, hasMounted } = this.state;
-    const { name, title, rows, htmlFor, resize, placeholder } = this.props;
+    const { name, title, rows, htmlFor, resize, placeholder, className } = this.props;
     return (
-      <div>
+      <>
         {hasMounted && (
-          <form>
+          <form className={className}>
             <TextArea
               content={content}
               handleInputChange={this.handleInputChange}
@@ -67,7 +68,7 @@ export default class TextAreaWithSubmit extends React.Component {
             />
           </form>
         )}
-      </div>
+      </>
     );
   }
 }
