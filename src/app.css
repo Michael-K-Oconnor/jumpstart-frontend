@@ -10,31 +10,20 @@ body {
 .container {
   display: grid;
   grid-template-columns: 65% 35%;
-  grid-template-rows: 80px 500px 200px 500px;
+  grid-template-rows: 80px auto;
 }
 
-.navBar {
+.navbar {
   grid-column: auto;
   grid-row: 1;
 }
-.Project {
+
+.left-col {
   grid-column: 1;
-  grid-row: 2/4;
 }
 
-.Pledge {
+.right-col {
   grid-column: 2;
-  grid-row: 2;
-}
-
-.Comments {
-  grid-column: 1;
-  grid-row: 4;
-}
-
-.Suggested {
-  grid-column: 2;
-  grid-row: 3/5;
 }
 
 #nav-bar {

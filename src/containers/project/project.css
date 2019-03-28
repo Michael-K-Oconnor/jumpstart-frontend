@@ -1,25 +1,25 @@
-.project-view {
+.project-component {
   display: flex;
   flex-direction: column;
-  width: 100%;
   padding-top: 20px;
   padding-left: 20px;
+  padding-right: 20px;
   box-sizing: border-box;
 }
 
 .header {
   display: flex;
   flex-direction: row;
+  padding-bottom: 5px;
 }
 
 .creator {
-  float: left;
   flex-direction: column;
   border-right: 10px;
+  width: 100px;
 }
 
 .creator > img {
-  float: left;
   width: 100px;
   height: 100px;
   border-radius: 5px;
@@ -32,8 +32,8 @@
 }
 
 .title {
-  float: center;
   border-right: 20px;
+  padding-left: 15px;
 }
 
 .title-name {
@@ -46,7 +46,7 @@
 }
 
 img.main-image {
-  width: 85%;
+  width: 100%;
   height: auto;
 }
 

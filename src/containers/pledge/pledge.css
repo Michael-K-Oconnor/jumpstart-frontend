@@ -24,7 +24,7 @@ div.progress .bar-background {
   display: block;
   background-color: rgb(200, 200, 200);
   height: 20px;
-  width: 80%;
+  width: 90%;
 }
 
 p.stats {
@@ -64,7 +64,7 @@ form.pledge .bling {
 form.pledge .number-input {
   padding-left: 32px;
   padding-right: 0;
-  width: calc(80% - 36px);
+  width: calc(90% - 36px);
   font-size: 22px;
 }
 
@@ -81,7 +81,7 @@ form.pledge .submit-button {
   margin-top: 10px;
   padding: 15px 0px 15px 0px;
   transition-duration: 0.4s;
-  width: 80%;
+  width: 90%;
 }
 
 form.pledge .submit-button:hover {

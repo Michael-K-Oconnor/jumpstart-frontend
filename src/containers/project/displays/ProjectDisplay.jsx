@@ -6,7 +6,7 @@ import categoryIcon from 'assets/categoryIcon.png';
 const ProjectDisplay = props => {
   const { creatorImg, creator, name, blurb, fullImg, category, location } = props;
   return (
-    <div className="project-view">
+    <div className="project-component">
       <div className="header">
         <div className="creator">
           <img src={creatorImg} alt="Project creator" />
@@ -14,10 +14,10 @@ const ProjectDisplay = props => {
         </div>
         <div className="title">
           <h1 className="title-name">{name}</h1>
-          <h3 className="title-blurb">{blurb}</h3>
+          <p className="title-blurb">{blurb}</p>
         </div>
       </div>
-      <img className="main" src={fullImg} alt="Project" />
+      <img className="main-image" src={fullImg} alt="Project" />
       <div className="context">
         <div className="context-category">
           <img src={categoryIcon} alt="category icon" />

@@ -35,8 +35,8 @@ const formatTimeStamp = timeStamp => {
 
 const calcFundedRatio = (pledged, goal) =>
   `${Math.min(
-    Math.ceil((pledged / goal) * (window.innerWidth * 0.35 * 0.8)),
-    window.innerWidth * 0.35 * 0.8
+    Math.ceil((pledged / goal) * (window.innerWidth * 0.35 * 0.9)),
+    window.innerWidth * 0.35 * 0.9
   )}px`;
 
 export { addCommas, isValidPledgeAmount, formatTimeStamp, calcFundedRatio };
