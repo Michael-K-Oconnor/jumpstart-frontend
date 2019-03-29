@@ -45,7 +45,7 @@ export default class Suggested extends React.Component {
     const { projects } = this.state;
     const { handleClick } = this.props;
     return (
-      <div>
+      <div className="suggested-component">
         {projects.map((project, i) => (
           <SuggestedCard key={i} handleClick={handleClick} project={project} />
         ))}

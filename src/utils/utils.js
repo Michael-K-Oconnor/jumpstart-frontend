@@ -30,6 +30,7 @@ const formatTimeStamp = timeStamp => {
   const [hour, min, second] = timeStamp.slice(11, 19).split(':');
   const pm = parseInt(hour, 10) >= 12 ? 'pm' : 'am';
   return `${month}/${day} ${hour}:${min}${pm}`;
+  // example return: 03/29 08:23pm
 };
 /* eslint-enable no-unused-vars */
 

@@ -87,7 +87,7 @@ export default class Pledge extends React.Component {
   render() {
     const { pledged, fundedRatio, goal, backerCount, daysLeft, hasData } = this.state;
     return (
-      <div className="component">
+      <div className="pledge-component">
         {hasData && (
           <PledgeInfo
             fundedRatio={fundedRatio}

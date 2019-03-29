@@ -1,1 +1,35 @@
 /* TODO: style component */
+.suggested-component {
+  padding-top: 30px;
+}
+
+button.suggested-card {
+  margin-top: 15px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: rgb(245, 245, 245);
+}
+
+button.suggested-card:hover {
+  box-shadow: 0px 0px 5px rgb(150, 150, 150);
+}
+
+button.suggested-card > img {
+  align-self: center;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+button.suggested-card .name {
+  font-size: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+
+button.suggested-card .blurb {
+  font-size: 10px;
+  text-align: left;
+}

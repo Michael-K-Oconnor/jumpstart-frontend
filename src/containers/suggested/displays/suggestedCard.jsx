@@ -6,14 +6,14 @@ const SuggestedCard = props => {
   return (
     <>
       <button
-        className="project"
+        className="suggested-card"
         type="button"
         onClick={event => handleClick(event, project.projectId)}
       >
-        <div className="image">
-          <img src={project.thumbnail} alt="Suggested project thumbnail" />
-          <div className="name">{project.name}</div>
-          <div className="blurb">{project.blurb}</div>
+        <img src={project.thumbnail} alt="Suggested project thumbnail" />
+        <div>
+          <p className="name">{project.name}</p>
+          <p className="blurb">{project.blurb}</p>
         </div>
       </button>
     </>

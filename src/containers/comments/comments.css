@@ -1,6 +1,4 @@
 .comment-component {
-  padding-left: 20px;
-  padding-right: 20px;
   padding-top: 20px;
 }
 
@@ -17,9 +15,27 @@ form.comment-form .form-input:focus {
   outline: none;
 }
 
+form.comment-form .submit-button {
+  background-color: rgb(0, 140, 0);
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 5px 0px 5px 0px;
+  transition-duration: 0.4s;
+  width: 80px;
+  float: right;
+  border-radius: 5px;
+}
+
+form.comment-form .submit-button:hover {
+  background-color: rgb(0, 190, 0);
+}
+
 .comment-cards {
   display: flex;
   flex-direction: column;
+  clear: both;
+  padding-top: 10px;
 }
 
 .comment-card {
