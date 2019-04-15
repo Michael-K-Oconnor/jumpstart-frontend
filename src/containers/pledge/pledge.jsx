@@ -15,7 +15,7 @@ export default class Pledge extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      apiRoute: `${window.location.origin}/api/projects/`,
+      apiRoute: `/api/projects/`,
       hasBacked: false,
       fundedRatio: '0px',
       hasData: false

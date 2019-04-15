@@ -12,7 +12,7 @@ export default class Project extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiRoute: `${window.location.origin}/api/projects/`,
+      apiRoute: '/api/projects/',
       hasData: false
     };
   }

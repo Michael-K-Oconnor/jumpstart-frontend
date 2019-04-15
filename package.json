@@ -4,9 +4,9 @@
   "description": "Client side react application for Jumpstart",
   "main": "index.html",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server",
     "watch": "webpack -d --watch",
-    "build": "webpack --mode development"
+    "build": " echo $NODE_ENV && webpack --mode $NODE_ENV"
   },
   "keywords": [],
   "repository": {
@@ -44,6 +44,7 @@
     "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
+    "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",

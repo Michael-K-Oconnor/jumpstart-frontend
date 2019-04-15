@@ -8,7 +8,7 @@ docker-compose*
 .git
 .gitignore
 .env*
-.eslint*
+# .eslint*
 .DS_Store
 
 Makefile

@@ -14,7 +14,7 @@ export default class Suggested extends React.Component {
     super(props);
     this.state = {
       projects: [],
-      apiRoute: `${window.location.origin}/api/projects/`
+      apiRoute: '/api/projects/'
     };
   }
 

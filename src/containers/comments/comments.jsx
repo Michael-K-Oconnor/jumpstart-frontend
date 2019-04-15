@@ -15,7 +15,7 @@ export default class Comments extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      apiRoute: `${window.location.origin}/api/comments/`,
+      apiRoute: '/api/comments/',
       comments: []
     };
   }

@@ -23,18 +23,22 @@ export default class App extends React.Component {
 
   render() {
     const { projectId } = this.state;
+    const hostUrl =
+      process.env.NODE_ENV === 'production'
+        ? `https://${window.location.hostname}`
+        : `http://${window.location.hostname}`;
     return (
       <div className="container">
         <div className="navbar">
           <Nav />
         </div>
         <div className="left-col">
-          <Project projectId={projectId} />
-          <Comments projectId={projectId} />
+          <Project projectId={projectId} hostUrl={hostUrl} />
+          <Comments projectId={projectId} hostUrl={hostUrl} />
         </div>
         <div className="right-col">
-          <Pledge projectId={projectId} />
-          <Suggested projectId={projectId} handleClick={this.handleClick} />
+          <Pledge projectId={projectId} hostUrl={hostUrl} />
+          <Suggested projectId={projectId} hostUrl={hostUrl} handleClick={this.handleClick} />
         </div>
       </div>
     );
